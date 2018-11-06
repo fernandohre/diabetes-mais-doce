@@ -22,15 +22,15 @@ public class PacienteDao {
 		dadosDao = helper.getSimpleDataDao(DadosMedicos.class);
 	}
 	
-	public void salva(Paciente paciente) {
+	public void salve(Paciente paciente) {
 		dao.create(paciente);
 	}
 
-	public void atualiza(Paciente paciente) {
+	public void atualize(Paciente paciente) {
 		dao.update(paciente);
 	}
 	
-	public Paciente getPaciente() {
+	public Paciente obtenhaPaciente() {
 		QueryBuilder<Paciente,Integer> builder = dao.queryBuilder();
 		QueryBuilder<DadosMedicos,Integer> builderDados = dadosDao.queryBuilder();
 
@@ -52,7 +52,7 @@ public class PacienteDao {
 		}
 		List<DadosMedicos> listDados = dadosDao.query(prepareDados);
 		for (DadosMedicos dadosMedicos : listDados) {
-			switch (dadosMedicos.getTipo()) {
+			switch (dadosMedicos.obtenhaTipo()) {
 				case CONTINUA:
 					paciente.setInsulinaContinua(dadosMedicos);
 					break;

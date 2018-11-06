@@ -68,7 +68,7 @@ public class NovaRefeicaoFragment extends Fragment {
 		DbHelper helper = new DbHelper(getActivity());
 		
 		PacienteDao pacienteDao = new PacienteDao(helper);
-		this.paciente = pacienteDao.getPaciente();
+		this.paciente = pacienteDao.obtenhaPaciente();
 		
 		helper.close();
 

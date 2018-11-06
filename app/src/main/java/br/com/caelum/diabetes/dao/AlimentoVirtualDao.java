@@ -21,19 +21,19 @@ public class AlimentoVirtualDao{
 		dao = helper.getSimpleDataDao(AlimentoVirtual.class);
 	}
 	
-	public void salva(AlimentoVirtual alimento) {
+	public void salve(AlimentoVirtual alimento) {
 		dao.create(alimento);
 	}
 
-	public void deletar(AlimentoVirtual alimento) {
+	public void delete(AlimentoVirtual alimento) {
 		dao.delete(alimento);
 	}
 
-	public void atualiza(AlimentoVirtual alimento) {
+	public void atualize(AlimentoVirtual alimento) {
 		dao.update(alimento);
 	}
 
-	public List<AlimentoVirtual> getAlimentosDaRefeicao(Refeicao refeicao) {
+	public List<AlimentoVirtual> obtenhaAlimentosDaRefeicao(Refeicao refeicao) {
 		QueryBuilder<AlimentoVirtual, Integer> builderAlimento = dao.queryBuilder();
 		PreparedQuery<AlimentoVirtual> prepare = null;
 		try {

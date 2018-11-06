@@ -30,7 +30,7 @@ public class DashboardFragment extends Fragment {
     private void getPaciente() {
 		DbHelper helper = new DbHelper(getActivity());
         PacienteDao dao = new PacienteDao(helper);
-        paciente = dao.getPaciente();
+        paciente = dao.obtenhaPaciente();
 	}
 
 	@Override

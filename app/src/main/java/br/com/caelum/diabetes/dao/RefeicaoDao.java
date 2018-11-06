@@ -26,14 +26,14 @@ public class RefeicaoDao{
 		dao.create(refeicao);
 		List<AlimentoVirtual> alimentos = refeicao.getAlimentos();
 		for (AlimentoVirtual alimentoVirtual : alimentos) {
-			alimentoVirtualDao.salva(alimentoVirtual);
+			alimentoVirtualDao.salve(alimentoVirtual);
 		}
 	}
 
 	public void deletar(Refeicao refeicao) {
 		dao.delete(refeicao);
 		for (AlimentoVirtual alimentoVirtual : refeicao.getAlimentos()) {
-			alimentoVirtualDao.deletar(alimentoVirtual);
+			alimentoVirtualDao.delete(alimentoVirtual);
 		}
 	}
 
@@ -54,7 +54,7 @@ public class RefeicaoDao{
 		List<Refeicao> refeicoes = dao.query(prepare);
 		
 		for (Refeicao refeicao : refeicoes) {
-			refeicao.setAlimentos(alimentoVirtualDao.getAlimentosDaRefeicao(refeicao));
+			refeicao.setAlimentos(alimentoVirtualDao.obtenhaAlimentosDaRefeicao(refeicao));
 		}
 		
 		return refeicoes;

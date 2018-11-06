@@ -69,7 +69,7 @@ public class ConfigurarInsulinaContinuaFragment extends Fragment {
 				DbHelper helper = new DbHelper(getActivity());
 
 				DadosMedicosDao dadosDao = new DadosMedicosDao(helper);
-				dadosDao.salva(dadosMedicos);
+				dadosDao.salve(dadosMedicos);
 
 				helper.close();
 

@@ -71,7 +71,7 @@ public class DadosMedicos implements Serializable {
 		}
 	}
 
-	public TipoDadoMedico getTipo() {
+	public TipoDadoMedico obtenhaTipo() {
 		return tipo;
 	}
 	public Integer getId() {

@@ -58,7 +58,7 @@ public class NovaGlicemiaFragment extends Fragment {
 
 		DbHelper helper = new DbHelper(getActivity());
 		final PacienteDao pacienteDao = new PacienteDao(helper);
-		this.paciente = pacienteDao.getPaciente();
+		this.paciente = pacienteDao.obtenhaPaciente();
 
 		final TextView horario = (TextView) view.findViewById(R.id.hora_glicemia);
 		final TextView data = (TextView) view.findViewById(R.id.data_glicemia);

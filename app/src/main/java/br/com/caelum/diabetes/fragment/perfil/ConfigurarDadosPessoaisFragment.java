@@ -45,7 +45,7 @@ public class ConfigurarDadosPessoaisFragment extends Fragment {
 		initializeComponents(view);
 		DbHelper helper = new DbHelper(getActivity());
 		dao = new PacienteDao(helper);
-		paciente = dao.getPaciente();
+		paciente = dao.obtenhaPaciente();
 
         salvar = (Button) view.findViewById(R.id.salvar_dados);
 
@@ -90,7 +90,7 @@ public class ConfigurarDadosPessoaisFragment extends Fragment {
 					paciente.setTipoDiabetes(tipo1.getText().toString());
 				}
 
-				dao.atualiza(paciente);
+				dao.atualize(paciente);
 
 				getFragmentManager().popBackStack();
 			}

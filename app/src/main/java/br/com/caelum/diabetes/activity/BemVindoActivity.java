@@ -59,7 +59,7 @@ public class BemVindoActivity extends AppCompatActivity {
 
 		helper = new DbHelper(BemVindoActivity.this);
 		dao = new PacienteDao(helper);
-		pacienteBanco = dao.getPaciente();
+		pacienteBanco = dao.obtenhaPaciente();
 
 		if(pacienteBanco != null) {
 			Intent intent = new Intent(BemVindoActivity.this, MainActivity.class);
@@ -155,7 +155,7 @@ public class BemVindoActivity extends AppCompatActivity {
         new PopulaAlimento(helper, getResources()).execute();
         Paciente paciente = new Paciente();
         paciente.setNome(nome);
-        dao.salva(paciente);
+        dao.salve(paciente);
         Intent intent = new Intent(BemVindoActivity.this, MainActivity.class);
         intent.putExtra("paciente", paciente);
         startActivity(intent);

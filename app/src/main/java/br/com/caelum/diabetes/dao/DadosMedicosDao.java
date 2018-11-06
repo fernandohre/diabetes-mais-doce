@@ -23,20 +23,20 @@ public class DadosMedicosDao {
 		pacienteDao = new PacienteDao(helper);
 	}
 	
-	public void salva(DadosMedicos dadosMedicos) {
-		DadosMedicos dadosMedicosCom = getDadosMedicosCom(dadosMedicos.getTipo());
+	public void salve(DadosMedicos dadosMedicos) {
+		DadosMedicos dadosMedicosCom = getDadosMedicosCom(dadosMedicos.obtenhaTipo());
 		if (dadosMedicosCom == null) {
 			dao.create(dadosMedicos);
-			adicionaDadosMedicosAoPaciente(dadosMedicos);
+			adicioneDadosMedicosAoPaciente(dadosMedicos);
 		} else {
 			dadosMedicos.setId(dadosMedicosCom.getId());
 			dao.update(dadosMedicos);
 		}
 	}
 
-	private void adicionaDadosMedicosAoPaciente(DadosMedicos dadosMedicos) {
-		Paciente paciente = pacienteDao.getPaciente();
-		switch (dadosMedicos.getTipo()) {
+	private void adicioneDadosMedicosAoPaciente(DadosMedicos dadosMedicos) {
+		Paciente paciente = pacienteDao.obtenhaPaciente();
+		switch (dadosMedicos.obtenhaTipo()) {
 			case CONTINUA:
 				paciente.setInsulinaContinua(dadosMedicos);
 				break;
@@ -54,7 +54,7 @@ public class DadosMedicosDao {
 				break;
 		}
 		
-		pacienteDao.atualiza(paciente);
+		pacienteDao.atualize(paciente);
 	}
 
 	public DadosMedicos getDadosMedicosCom(TipoDadoMedico glicemiaAlvo) {

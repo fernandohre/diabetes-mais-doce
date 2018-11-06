@@ -148,7 +148,7 @@ public class Header {
 
         DbHelper helper = new DbHelper(activity);
         PacienteDao dao = new PacienteDao(helper);
-        Paciente paciente = dao.getPaciente();
+        Paciente paciente = dao.obtenhaPaciente();
 
         AccountHeader perfil = new AccountHeaderBuilder()
                 .withActivity(activity)
