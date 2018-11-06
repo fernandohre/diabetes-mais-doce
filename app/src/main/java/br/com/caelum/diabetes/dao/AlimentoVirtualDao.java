@@ -47,7 +47,7 @@ public class AlimentoVirtualDao{
 		AlimentoFisicoDao alimentoFisicoDao = new AlimentoFisicoDao(helper);
 		
 		for (AlimentoVirtual alimentoVirtual : alimentosVirtuais) {
-			alimentoVirtual.setAlimento(alimentoFisicoDao.getAlimentoFisicoDoVirtual(alimentoVirtual));
+			alimentoVirtual.setAlimento(alimentoFisicoDao.obtenhaAlimentoFisicoDoVirtual(alimentoVirtual));
 		}
 		
 		return alimentosVirtuais;

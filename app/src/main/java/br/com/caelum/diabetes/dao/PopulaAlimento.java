@@ -46,7 +46,7 @@ public class PopulaAlimento extends AsyncTask<String,Void,Boolean> {
                 inserts.add(line);
             }
             bufferedReader.close();
-            alimentoFisicoDao.importarAlimentos(inserts);
+            alimentoFisicoDao.importeAlimentos(inserts);
             success = true;
         } catch (IOException e) {
             e.printStackTrace();

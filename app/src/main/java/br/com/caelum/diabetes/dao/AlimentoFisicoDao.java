@@ -27,19 +27,19 @@ public class AlimentoFisicoDao {
 		dao = helper.getSimpleDataDao(AlimentoFisico.class);
 	}
 	
-	public void salva(AlimentoFisico alimento) {
+	public void salve(AlimentoFisico alimento) {
 		dao.create(alimento);
 	}
 	
-	public void deletar(AlimentoFisico alimento) {
+	public void delete(AlimentoFisico alimento) {
 		dao.delete(alimento);
 	}
 
-	public void atualiza(AlimentoFisico alimento) {
+	public void atualize(AlimentoFisico alimento) {
 		dao.update(alimento);
 	}
 	
-	public List<AlimentoFisico> getAlimentos() {
+	public List<AlimentoFisico> obtenhaAlimentos() {
 		QueryBuilder<AlimentoFisico, Integer> builder = dao.queryBuilder();
 		
 		PreparedQuery<AlimentoFisico> prepare = null;
@@ -52,7 +52,7 @@ public class AlimentoFisicoDao {
 		return dao.query(prepare);
 	}
 
-	public AlimentoFisico getAlimentoFisicoDoVirtual(AlimentoVirtual alimentoVirtual) {
+	public AlimentoFisico obtenhaAlimentoFisicoDoVirtual(AlimentoVirtual alimentoVirtual) {
 		QueryBuilder<AlimentoFisico, Integer> builderAlimento = dao.queryBuilder();
 		PreparedQuery<AlimentoFisico> prepare = null;
 		try {
@@ -65,17 +65,17 @@ public class AlimentoFisicoDao {
 		return dao.queryForFirst(prepare);
 	}
 
-    public void executaInsert(String insert) {
+    public void executeInsercao(String insert) {
         dao.executeRaw(insert);
     }
 
-    public void importarAlimentos(final ArrayList<String> inserts) {
+    public void importeAlimentos(final ArrayList<String> inserts) {
         try {
             TransactionManager.callInTransaction(helper.getConnectionSource(), new Callable<Void>() {
                 @Override
                 public Void call() throws Exception {
                     for(String insert: inserts) {
-                        executaInsert(insert);
+						executeInsercao(insert);
                     }
                     return null;
                 }

@@ -65,7 +65,7 @@ public class NovoAlimentoDiferenteFragment extends Fragment {
 						.toString());
 				DbHelper helper = new DbHelper(getActivity());
 				AlimentoFisicoDao dao = new AlimentoFisicoDao(helper);
-				dao.salva(alimentoFisico);
+				dao.salve(alimentoFisico);
 				helper.close();
 
 				getFragmentManager().popBackStack();

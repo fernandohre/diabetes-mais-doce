@@ -58,7 +58,7 @@ public class AdicionaAlimentoFragment extends Fragment {
 		alimentoDao = new AlimentoFisicoDao(helper);
 
         // Make sure that this call is on separated thread (async mode) for no block the main UI thread.
-		alimentos = alimentoDao.getAlimentos();
+		alimentos = alimentoDao.obtenhaAlimentos();
 		
 		helper.close();
 
