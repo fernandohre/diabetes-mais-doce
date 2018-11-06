@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "br.com.caelum.diabetes"
-        minSdkVersion 16
-        targetSdkVersion 18
+        minSdkVersion 21
+        targetSdkVersion 28
     }
 
     buildTypes {
@@ -24,12 +24,12 @@ repositories {
 }
 
 dependencies {
-    compile 'joda-time:joda-time:2.3'
-    compile files('libs/ormlite-android-4.48.jar')
-    compile files('libs/ormlite-core-4.48.jar')
-    compile files('libs/jxl.jar')
-    compile 'com.github.flavienlaurent:datetimepicker:0f5d399995'
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.mikepenz:materialdrawer:5.1.6'
-    compile 'com.facebook.android:facebook-android-sdk:4.15.0'
+    implementation 'joda-time:joda-time:2.3'
+    implementation fileTree('libs/ormlite-android-4.48.jar')
+    implementation fileTree('libs/ormlite-core-4.48.jar')
+    implementation fileTree('libs/jxl.jar')
+    implementation 'com.github.flavienlaurent:datetimepicker:0f5d399995'
+    implementation 'com.android.support:appcompat-v7:23.1.0'
+    implementation 'com.mikepenz:materialdrawer:5.1.6'
+    implementation 'com.facebook.android:facebook-android-sdk:4.15.0'
 }
